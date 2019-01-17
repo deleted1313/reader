@@ -11,8 +11,8 @@
           </div>
         </div>
         <div class="background-selectors">
-          <div class="white" @click="backgroundColor='#FFFFFF'"></div>
-          <div class="beige" @click="backgroundColor='#f8f1e3'"></div>
+          <div class="white" @click="whitePreset"></div>
+          <div class="beige" @click="beigePreset"></div>
           <div class="gray" @click="grayPreset"></div>
           <div class="black" @click="blackPreset"></div>
         </div>
@@ -127,6 +127,8 @@
       </div>
       </div>
     </div>
+    <input v-model="pageNumber" @keyup.enter="locationReplace" class="page-number_input">
+    <label @click="locationReplace" class="page-number_label">OK</label>
     <div class="text"  v-bind:style="{ color: textColor, backgroundColor, fontSize: fontSize/10 + 'rem', textAlign, fontFamily }">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
         earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
@@ -171,6 +173,9 @@ export default {
       showColorPicker: false,
       fontFamily: 'Arial',
       showSavedLabel: false,
+      pageNumber: null,
+      pageOrigin: null,
+      pagePathname: null
     }
   },
   created() {
@@ -184,6 +189,9 @@ export default {
     if (storagedTextAlign) this.textAlign = storagedTextAlign
     const storagedFontFamily = localStorage.getItem('fontFamily')
     if (storagedFontFamily) this.fontFamily = storagedFontFamily
+    this.pageNumber = +window.location.search.replace('?page=', '')
+    this.pageOrigin = window.location.origin
+    this.pagePathname = window.location.pathname
     document.body.addEventListener('click', (e) => {
         this.showDropdown = false
         this.showBackgroundPicker = false
@@ -226,6 +234,18 @@ export default {
       this.fontFamily = 'Arial'
       this.saveToStorage()
     },
+    locationReplace() {
+      const newUrl = this.pageOrigin + this.pagePathname + `?page=${this.pageNumber}`
+      window.location.replace(newUrl)
+    },
+    whitePreset() {
+      this.backgroundColor='#FFFFFF'
+      this.textColor = '#000000' 
+    },
+    beigePreset() {
+      this.backgroundColor='#f8f1e3'
+      this.textColor = '#000000' 
+    }, 
     grayPreset() {
       this.backgroundColor='#5a5a5a'
       this.textColor = '#ffffff'
@@ -267,8 +287,8 @@ export default {
       }
     },
     increaseFontSize() {
-      if (this.fontSize < 99) {
-        this.fontSize += 1
+      if (+this.fontSize < 99) {
+      this.fontSize = +this.fontSize + 1
       }
     }
   }
@@ -416,13 +436,13 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 8.4px;
   cursor: pointer;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #ff6b00;
+  background: #db6974;
   border-radius: 1.3px;
   border: 0.2px solid #010101;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #ff6b00;
+  background: #db6974;
 }
 
 input[type=range]::-moz-range-track {
@@ -445,22 +465,22 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 input[type=range]::-ms-fill-lower {
-  background: #ff6b00;
+  background: #db6974;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 input[type=range]:focus::-ms-fill-lower {
-  background: #ff6b00;
+  background: #db6974;
 }
 input[type=range]::-ms-fill-upper {
-  background: #ff6b00;
+  background: #db6974;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 input[type=range]:focus::-ms-fill-upper {
-  background: #ff6b00;
+  background: #db6974;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -490,6 +510,7 @@ input[type=range]::-moz-range-thumb {
 
 .text-align div {
   cursor: pointer;
+  font-size: 10px;
 }
 
 .picker {
@@ -510,7 +531,7 @@ input[type=range]::-moz-range-thumb {
 .background-color:hover,
 .text-color:hover .picker_input,
 .background-color:hover .picker_input {
-  color: #f58100;
+  color: #db6974;
 }
 
 .font-size {
@@ -520,10 +541,10 @@ input[type=range]::-moz-range-thumb {
 }
 
 .settings {
-  color: #f50;
+  color: #db6974;
   background-color: #fff;
   font-size: 1.4rem;
-  border-bottom: 1px solid #f50;
+  border-bottom: 1px solid #db6974;
   cursor: pointer;
 }
 
@@ -531,8 +552,8 @@ input[type=range]::-moz-range-thumb {
   font-family: 'Roboto', sans-serif;
   font-size: 1.4rem;
   font-weight: bold;
-  border-bottom: 1px solid #16baff;
-  color: #16baff;
+  border-bottom: 1px solid #db6974;
+  color: #db6974;
   cursor: pointer;
 }
 
@@ -545,7 +566,7 @@ select {
         margin-top: 9px;
 }
 
-.font-size_input {
+.font-size_input, .page-number_input {
       border: 1px solid #999;
     padding: 3px 10px;
     margin: 5px 0;
@@ -591,10 +612,11 @@ label {
 
 .sizes>div {
   cursor: pointer;
+  color: black !important;
 }
 
 .sizes>div:hover {
-  color: #f58100;
+  color: #db6974;
 }
 
 .filter>div {
@@ -634,5 +656,16 @@ label {
   .dropdown {
         right: 8px;
   }
+}
+
+.page-number_input {
+  font-size: 1.8rem !important;
+  text-align: center;
+}
+
+.page-number_label {
+  font-size: 1.8rem;
+  padding-left: 7px;
+  cursor: pointer;
 }
 </style>
