@@ -377,13 +377,13 @@ export default {
   height: 8.4px;
   cursor: pointer;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #db6974;
+  background: #1976d2;
   border-radius: 1.3px;
   border: 0.2px solid #010101;
 }
 
 .readerMax input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #db6974;
+  background: #1976d2;
 }
 
 .readerMax input[type=range]::-moz-range-track {
@@ -406,22 +406,22 @@ export default {
   color: transparent;
 }
 .readerMax input[type=range]::-ms-fill-lower {
-  background: #db6974;
+  background: #1976d2;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 .readerMax input[type=range]:focus::-ms-fill-lower {
-  background: #db6974;
+  background: #1976d2;
 }
 .readerMax input[type=range]::-ms-fill-upper {
-  background: #db6974;
+  background: #1976d2;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 .readerMax input[type=range]:focus::-ms-fill-upper {
-  background: #db6974;
+  background: #1976d2;
 }
 
 .readerMax input[type=range]::-webkit-slider-thumb {
@@ -472,7 +472,7 @@ export default {
 .readerMax-background-color:hover,
 .readerMax-text-color:hover .readerMax-picker_input,
 .readerMax-background-color:hover .readerMax-picker_input {
-  color: #db6974;
+  color: #1976d2;
 }
 
 .readerMax-font-size {
@@ -482,10 +482,10 @@ export default {
 }
 
 .readerMax-settings {
-  color: #db6974;
+  color: #1976d2;
   background-color: #fff;
   font-size: 1.4rem;
-  border-bottom: 1px solid #db6974;
+  border-bottom: 1px solid #1976d2;
   cursor: pointer;
 }
 
@@ -493,8 +493,8 @@ export default {
   font-family: 'Roboto', sans-serif;
   font-size: 1.4rem;
   font-weight: bold;
-  border-bottom: 1px solid #db6974;
-  color: #db6974;
+  border-bottom: 1px solid #1976d2;
+  color: #1976d2;
   cursor: pointer;
 }
 
@@ -559,7 +559,7 @@ export default {
 }
 
 .readerMax-sizes>div:hover {
-  color: #db6974;
+  color: #1976d2;
 }
 
 .readerMax-filter>div {
