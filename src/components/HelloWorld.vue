@@ -1,29 +1,29 @@
 <template>
-  <div class="hello">
-    <div class="filter" @click="showDropdown=false">
-      <div class="media-container">
-        <div class="sizes">
-          <div class="less-size" @click="decreaseFontSize">
+  <div class="readerMax">
+    <div class="readerMax-filter" @click="showDropdown=false">
+      <div class="readerMax-media-container">
+        <div class="readerMax-sizes">
+          <div class="readerMax-less-size" @click="decreaseFontSize">
             А
           </div>
-          <div class="more-size" @click="increaseFontSize">
+          <div class="readerMax-more-size" @click="increaseFontSize">
             А
           </div>
         </div>
-        <div class="background-selectors">
-          <div class="white" @click="whitePreset"></div>
-          <div class="beige" @click="beigePreset"></div>
-          <div class="gray" @click="grayPreset"></div>
-          <div class="black" @click="blackPreset"></div>
+        <div class="readerMax-background-selectors">
+          <div class="readerMax-white" @click="whitePreset"></div>
+          <div class="readerMax-beige" @click="beigePreset"></div>
+          <div class="readerMax-gray" @click="grayPreset"></div>
+          <div class="readerMax-black" @click="blackPreset"></div>
         </div>
       </div>
-      <div class="settingsContainer">
-      <div class="settings" @click="showDropdownMethod">
+      <div class="readerMax-settingsContainer">
+      <div class="readerMax-settings" @click="showDropdownMethod">
         Настройки
         <img src="../../public/triangle.png">
       </div>
-      <div class="dropdown" v-if="showDropdown" @click="importantShow">
-        <label class="font-label">Шрифт</label>
+      <div class="readerMax-dropdown" v-if="showDropdown" @click="importantShow">
+        <label class="readerMax-font-label">Шрифт</label>
         <select v-model="fontFamily">
           <option>
             Arial 
@@ -81,54 +81,54 @@
           </option>
   
         </select>
-        <div class="font-size">
-          <div class="input-container">
+        <div class="readerMax-font-size">
+          <div class="readerMax-input-container">
             <label>Размер шрифта</label>
-            <input v-model="fontSize" class="font-size_input">
+            <input v-model="fontSize" class="readerMax-font-size_input">
           </div>
-          <input type="range" v-model="fontSize" min="9" max="99">
+          <input class="readerMax-range" type="range" v-model="fontSize" min="9" max="99">
         </div>
 
-        <div class="text-align">
-          <div class="left" @click="textAlign='left'">
+        <div class="readerMax-text-align">
+          <div class="readerMax-left" @click="textAlign='left'">
             <img src="../../public/left.png">
           </div>
-          <div class="center" @click="textAlign='center'">
+          <div class="readerMax-center" @click="textAlign='center'">
              <img src="../../public/center.png">
           </div>
-          <div class="right" @click="textAlign='right'">
+          <div class="readerMax-right" @click="textAlign='right'">
              <img src="../../public/right.png">
           </div>
-          <div class="justify" @click="textAlign='justify'">
+          <div class="readerMax-justify" @click="textAlign='justify'">
              <img src="../../public/justify.png">
           </div>
         </div>
-        <div class="background-color">
+        <div class="readerMax-background-color">
           <label>Цвет фона</label>
-          <input v-model="backgroundColor" @click="showBackgroundPickerMethod" class="picker_input">
-          <color-picker v-model="backgroundColor" class="picker" :height="195" :width="195" v-if="showBackgroundPicker"></color-picker>
+          <input v-model="backgroundColor" @click="showBackgroundPickerMethod" class="readerMax-picker_input">
+          <color-picker v-model="backgroundColor" class="readerMax-picker" :height="195" :width="195" v-if="showBackgroundPicker"></color-picker>
         </div>
-        <div class="text-color">
+        <div class="readerMax-text-color">
           <label>Цвет шрифта</label>
-          <input v-model="textColor" @click="showColorPickerMethod" class="picker_input">
-          <color-picker v-model="textColor" class="picker" :height="195" :width="195" v-if="showColorPicker"></color-picker>
+          <input v-model="textColor" @click="showColorPickerMethod" class="readerMax-picker_input">
+          <color-picker v-model="textColor" class="readerMax-picker" :height="195" :width="195" v-if="showColorPicker"></color-picker>
         </div>
-        <div class="clear" @click="clear">
+        <div class="readerMax-clear" @click="clear">
           Очистить
         </div>
       </div>
       </div>
-      <div class="save-container">
-      <div class="save" @click="saveToStorage">
+      <div class="readerMax-save-container">
+      <div class="readerMax-save" @click="saveToStorage">
         Сохранить
       </div>
-      <div class="saved" v-if="showSavedLabel">
+      <div class="readerMax-saved" v-if="showSavedLabel">
         Сохранено
       </div>
       </div>
     </div>
-    <input v-model="pageNumber" @keyup.enter="locationReplace" class="page-number_input">
-    <label @click="locationReplace" class="page-number_label">OK</label>
+    <input v-model="pageNumber" @keyup.enter="locationReplace" class="readerMax-page-number_input">
+    <label @click="locationReplace" class="readerMax-page-number_label">OK</label>
   </div>
 </template>
 
@@ -275,31 +275,8 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-.hello {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-body {
-  transition: all 0.2s linear;
-}
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-.filter {
+<style>
+.readerMax-filter {
   display: flex;
   align-items: center;
   font-family: 'Roboto', sans-serif;
@@ -309,7 +286,7 @@ a {
   border-radius: 4px;
   padding: 20px;
 }
-.less-size {
+.readerMax-less-size {
   padding: 5px;
   width: 18px;
   height: 18px;
@@ -321,7 +298,7 @@ a {
   justify-content: center;
   margin-right: 3px;
 }
-.more-size {
+.readerMax-more-size {
   font-size: 18px;
   padding: 0px;
   width: 18px;
@@ -333,11 +310,11 @@ a {
   align-items: center;
   justify-content: center;
 }
-.background-selectors {
+.readerMax-background-selectors {
   margin-left: 6px;
   display: flex;
 }
-.white, .beige, .gray, .black, .right, .left, .center, .justify {
+.readerMax-white, .readerMax-beige, .readerMax-gray, .readerMax-black, .readerMax-right, .readerMax-left, .readerMax-center, .readerMax-justify {
   width: 18px;
   height: 18px;
   padding: 5px;
@@ -346,22 +323,20 @@ a {
   margin-right: 3px;
   cursor: pointer;
 }
-.white {
+.readerMax-white {
   background: white;
 }
-.beige {
+.readerMax-beige {
   background: #f8f1e3;
 }
-.gray {
+.readerMax-gray {
   background: #5a5a5a;
 }
-.black {
+.readerMax-black {
   background: #121212;
 }
-label {
-  text-align: left;
-}
-.dropdown {
+
+.readerMax-dropdown {
   min-width: 160px;
   max-width: 360px;
   list-style: none;
@@ -380,7 +355,7 @@ label {
   z-index: 2;
 }
 
-.dropdown>div {
+.readerMax-dropdown>div {
   margin-top: 15px;
   width: 100%;
 }
@@ -392,15 +367,15 @@ input[type=range] {
   background: transparent; /* Otherwise white in Chrome */
 }
 
-input[type=range]::-webkit-slider-thumb {
+.readerMax input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
 }
 
-input[type=range]:focus {
+.readerMax input[type=range]:focus {
   outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
 }
 
-input[type=range]::-ms-track {
+.readerMax input[type=range]::-ms-track {
   width: 100%;
   cursor: pointer;
 
@@ -409,7 +384,7 @@ input[type=range]::-ms-track {
   border-color: transparent;
   color: transparent;
 }
-input[type=range]::-webkit-slider-runnable-track {
+.readerMax input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 8.4px;
   cursor: pointer;
@@ -419,11 +394,11 @@ input[type=range]::-webkit-slider-runnable-track {
   border: 0.2px solid #010101;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
+.readerMax input[type=range]:focus::-webkit-slider-runnable-track {
   background: #db6974;
 }
 
-input[type=range]::-moz-range-track {
+.readerMax input[type=range]::-moz-range-track {
   width: 100%;
   height: 8.4px;
   cursor: pointer;
@@ -433,7 +408,7 @@ input[type=range]::-moz-range-track {
   border: 0.2px solid #010101;
 }
 
-input[type=range]::-ms-track {
+.readerMax input[type=range]::-ms-track {
   width: 100%;
   height: 8.4px;
   cursor: pointer;
@@ -442,26 +417,26 @@ input[type=range]::-ms-track {
   border-width: 16px 0;
   color: transparent;
 }
-input[type=range]::-ms-fill-lower {
+.readerMax input[type=range]::-ms-fill-lower {
   background: #db6974;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
-input[type=range]:focus::-ms-fill-lower {
+.readerMax input[type=range]:focus::-ms-fill-lower {
   background: #db6974;
 }
-input[type=range]::-ms-fill-upper {
+.readerMax input[type=range]::-ms-fill-upper {
   background: #db6974;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
-input[type=range]:focus::-ms-fill-upper {
+.readerMax input[type=range]:focus::-ms-fill-upper {
   background: #db6974;
 }
 
-input[type=range]::-webkit-slider-thumb {
+.readerMax input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 30px;
   width: 30px;
@@ -474,51 +449,51 @@ input[type=range]::-webkit-slider-thumb {
 
 
 /* All the same stuff for Firefox */
-input[type=range]::-moz-range-thumb {
+.readerMax input[type=range]::-moz-range-thumb {
   height: 30px;
   width: 30px;
   background: #ffffff;
   cursor: pointer;
 }
 
-.text-align {
+.readerMax-text-align {
   display: flex;
   width: 120px !important;
 }
 
-.text-align div {
+.readerMax-text-align div {
   cursor: pointer;
   font-size: 10px;
 }
 
-.picker {
+.readerMax-picker {
   cursor: crosshair;
   width: 195px;
   height: 195px;
 }
 
-.text-color, .background-color {
+.readerMax-text-color, .readerMax-background-color {
   display: flex;
   flex-direction: column;
 }
-.text-color label, .background-color label {
+.readerMax-text-color label, .readerMax-background-color label {
   cursor: pointer
 }
 
-.text-color:hover,
-.background-color:hover,
-.text-color:hover .picker_input,
-.background-color:hover .picker_input {
+.readerMax-text-color:hover,
+.readerMax-background-color:hover,
+.readerMax-text-color:hover .readerMax-picker_input,
+.readerMax-background-color:hover .readerMax-picker_input {
   color: #db6974;
 }
 
-.font-size {
+.readerMax-font-size {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.settings {
+.readerMax-settings {
   color: #db6974;
   background-color: #fff;
   font-size: 1.4rem;
@@ -526,7 +501,7 @@ input[type=range]::-moz-range-thumb {
   cursor: pointer;
 }
 
-.save {
+.readerMax-save {
   font-family: 'Roboto', sans-serif;
   font-size: 1.4rem;
   font-weight: bold;
@@ -535,7 +510,7 @@ input[type=range]::-moz-range-thumb {
   cursor: pointer;
 }
 
-select {
+.readerMax select {
       width: 212px;
     height: 34px;
     border-top-left-radius: 4px;
@@ -544,7 +519,7 @@ select {
         margin-top: 9px;
 }
 
-.font-size_input, .page-number_input {
+.readerMax-font-size_input, .readerMax-page-number_input {
       border: 1px solid #999;
     padding: 3px 10px;
     margin: 5px 0;
@@ -555,7 +530,7 @@ select {
     max-width: 59px;
 }
 
-.picker_input {
+.readerMax-picker_input {
     font-size: 1.1rem;
     border: 1px solid #999;
     padding: 3px 10px;
@@ -566,17 +541,17 @@ select {
     max-width: 70px;
 }
 
-.input-container {
+.readerMax-input-container {
   display: flex;
   align-items: center;
 }
 
-label {
+.readerMax label {
   font-size: 1.2rem;
   margin-right: 5px;
 }
 
-.clear {
+.readerMax-clear {
       font-size: 1.4rem;
     color: #333;
     border-bottom: 1px solid #797979;
@@ -584,24 +559,24 @@ label {
     cursor: pointer;
 }
 
-.sizes {
+.readerMax-sizes {
   display: flex;
 }
 
-.sizes>div {
+.readerMax-sizes>div {
   cursor: pointer;
   color: black !important;
 }
 
-.sizes>div:hover {
+.readerMax-sizes>div:hover {
   color: #db6974;
 }
 
-.filter>div {
+.readerMax-filter>div {
   margin-left: 20px;
 }
 
-.saved {
+.readerMax-saved {
   font-weight: bold;
   font-size: 1.3rem;
   color: #1eae00;
@@ -610,38 +585,38 @@ label {
   z-index: 1;
 }
 
-.save-container {
+.readerMax-save-container {
   position: relative;
 }
 
-.media-container {
+.readerMax-media-container {
   display: flex;
   align-items: center;
 }
 
 @media (max-width: 600px) {
-  .filter {
+  .readerMax-filter {
     flex-direction: column-reverse;
     align-items: flex-end;
   }
 
-  .filter>div {
+  .readerMax-filter>div {
     margin-bottom: 30px;
   }
 }
 
 @media (max-width: 1200px) {
-  .dropdown {
+  .readerMax-dropdown {
         right: 8px;
   }
 }
 
-.page-number_input {
+.readerMax-page-number_input {
   font-size: 1.8rem !important;
   text-align: center;
 }
 
-.page-number_label {
+.readerMax-page-number_label {
   font-size: 1.8rem;
   padding-left: 7px;
   cursor: pointer;
