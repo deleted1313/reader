@@ -13,8 +13,8 @@
         <div class="background-selectors">
           <div class="white" @click="backgroundColor='#FFFFFF'"></div>
           <div class="beige" @click="backgroundColor='#f8f1e3'"></div>
-          <div class="gray" @click="backgroundColor='#5a5a5a'"></div>
-          <div class="black" @click="backgroundColor='#121212'"></div>
+          <div class="gray" @click="grayPreset"></div>
+          <div class="black" @click="blackPreset"></div>
         </div>
       </div>
       <div class="settingsContainer">
@@ -129,6 +129,24 @@
     </div>
     <div class="text"  v-bind:style="{ color: textColor, backgroundColor, fontSize: fontSize/10 + 'rem', textAlign, fontFamily }">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
+        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
         earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!
     </div>
   </div>
@@ -172,6 +190,33 @@ export default {
         this.showColorPicker = false
     })
   },
+
+  mounted() {
+    document.querySelector('#app').style.fontFamily = this.fontFamily;
+    document.querySelector('#app').style.fontSize = this.fontSize + 'px';
+    document.querySelector('#app').style.color = this.textColor;
+    document.querySelector('#app').style.textAlign = this.textAlign;
+    document.querySelector('#app').style.background = this.backgroundColor;
+  },
+
+  watch: {
+    backgroundColor: function(newB, oldB) {
+        document.querySelector('#app').style.background = this.backgroundColor;
+    },
+    fontSize: function(newB, oldB) {
+      document.querySelector('#app').style.fontSize = this.fontSize + 'px';
+    },
+    textColor: function(newB, oldB) {
+      document.querySelector('#app').style.color = this.textColor;
+    },
+    textAlign: function(newB, oldB) {
+      document.querySelector('#app').style.textAlign = this.textAlign;
+    },
+    fontFamily: function(newB, oldB) {
+      document.querySelector('#app').style.fontFamily = this.fontFamily;
+    }
+  },
+
   methods: {
     clear() {
       this.fontSize = 18
@@ -180,6 +225,14 @@ export default {
       this.textAlign = 'justify'
       this.fontFamily = 'Arial'
       this.saveToStorage()
+    },
+    grayPreset() {
+      this.backgroundColor='#5a5a5a'
+      this.textColor = '#ffffff'
+    },
+    blackPreset() {
+      this.backgroundColor='#121212'
+      this.textColor = '#b0b0b0'
     },
     importantShow(event) {
       event.stopPropagation()
@@ -254,6 +307,9 @@ a {
   font-family: 'Roboto', sans-serif;
   justify-content: flex-end;
   margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 20px;
 }
 .less-size {
   padding: 5px;
