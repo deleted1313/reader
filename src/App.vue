@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="readerApp">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
@@ -8,7 +8,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'app',
+  name: 'readerApp',
   components: {
     HelloWorld
   }

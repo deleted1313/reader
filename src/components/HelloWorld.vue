@@ -200,28 +200,28 @@ export default {
   },
 
   mounted() {
-    document.querySelector('#app').style.fontFamily = this.fontFamily;
-    document.querySelector('#app').style.fontSize = this.fontSize + 'px';
-    document.querySelector('#app').style.color = this.textColor;
-    document.querySelector('#app').style.textAlign = this.textAlign;
-    document.querySelector('#app').style.background = this.backgroundColor;
+    document.querySelector('#readerApp').style.fontFamily = this.fontFamily;
+    document.querySelector('#readerApp').style.fontSize = this.fontSize + 'px';
+    document.querySelector('#readerApp').style.color = this.textColor;
+    document.querySelector('#readerApp').style.textAlign = this.textAlign;
+    document.querySelector('#readerApp').style.background = this.backgroundColor;
   },
 
   watch: {
     backgroundColor: function(newB, oldB) {
-        document.querySelector('#app').style.background = this.backgroundColor;
+        document.querySelector('#readerApp').style.background = this.backgroundColor;
     },
     fontSize: function(newB, oldB) {
-      document.querySelector('#app').style.fontSize = this.fontSize + 'px';
+      document.querySelector('#readerApp').style.fontSize = this.fontSize + 'px';
     },
     textColor: function(newB, oldB) {
-      document.querySelector('#app').style.color = this.textColor;
+      document.querySelector('#readerApp').style.color = this.textColor;
     },
     textAlign: function(newB, oldB) {
-      document.querySelector('#app').style.textAlign = this.textAlign;
+      document.querySelector('#readerApp').style.textAlign = this.textAlign;
     },
     fontFamily: function(newB, oldB) {
-      document.querySelector('#app').style.fontFamily = this.fontFamily;
+      document.querySelector('#readerApp').style.fontFamily = this.fontFamily;
     }
   },
 
