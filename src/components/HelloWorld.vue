@@ -127,8 +127,6 @@
       </div>
       </div>
     </div>
-    <input v-model="pageNumber" @keyup.enter="locationReplace" class="readerMax-page-number_input">
-    <label @click="locationReplace" class="readerMax-page-number_label">OK</label>
   </div>
 </template>
 
@@ -151,9 +149,6 @@ export default {
       showColorPicker: false,
       fontFamily: 'Arial',
       showSavedLabel: false,
-      pageNumber: null,
-      pageOrigin: null,
-      pagePathname: null
     }
   },
   created() {
@@ -167,9 +162,6 @@ export default {
     if (storagedTextAlign) this.textAlign = storagedTextAlign
     const storagedFontFamily = localStorage.getItem('fontFamily')
     if (storagedFontFamily) this.fontFamily = storagedFontFamily
-    this.pageNumber = +window.location.search.replace('?page=', '')
-    this.pageOrigin = window.location.origin
-    this.pagePathname = window.location.pathname
     document.body.addEventListener('click', (e) => {
         this.showDropdown = false
         this.showBackgroundPicker = false
@@ -178,28 +170,28 @@ export default {
   },
 
   mounted() {
-    document.querySelector('#readerText').style.fontFamily = this.fontFamily;
-    document.querySelector('#readerText').style.fontSize = this.fontSize + 'px';
-    document.querySelector('#readerText').style.color = this.textColor;
-    document.querySelector('#readerText').style.textAlign = this.textAlign;
-    document.querySelector('#readerText').style.background = this.backgroundColor;
+    document.querySelector('body').style.fontFamily = this.fontFamily;
+    document.querySelector('body').style.fontSize = this.fontSize + 'px';
+    document.querySelector('body').style.color = this.textColor;
+    document.querySelector('body').style.textAlign = this.textAlign;
+    document.querySelector('body').style.background = this.backgroundColor;
   },
 
   watch: {
     backgroundColor: function(newB, oldB) {
-        document.querySelector('#readerText').style.background = this.backgroundColor;
+        document.querySelector('body').style.background = this.backgroundColor;
     },
     fontSize: function(newB, oldB) {
-      document.querySelector('#readerText').style.fontSize = this.fontSize + 'px';
+      document.querySelector('body').style.fontSize = this.fontSize + 'px';
     },
     textColor: function(newB, oldB) {
-      document.querySelector('#readerText').style.color = this.textColor;
+      document.querySelector('body').style.color = this.textColor;
     },
     textAlign: function(newB, oldB) {
-      document.querySelector('#readerText').style.textAlign = this.textAlign;
+      document.querySelector('body').style.textAlign = this.textAlign;
     },
     fontFamily: function(newB, oldB) {
-      document.querySelector('#readerText').style.fontFamily = this.fontFamily;
+      document.querySelector('body').style.fontFamily = this.fontFamily;
     }
   },
 
@@ -211,10 +203,6 @@ export default {
       this.textAlign = 'justify'
       this.fontFamily = 'Arial'
       this.saveToStorage()
-    },
-    locationReplace() {
-      const newUrl = this.pageOrigin + this.pagePathname + `?page=${this.pageNumber}`
-      window.location.replace(newUrl)
     },
     whitePreset() {
       this.backgroundColor='#FFFFFF'
@@ -288,8 +276,8 @@ export default {
 }
 .readerMax-less-size {
   padding: 5px;
-  width: 18px;
-  height: 18px;
+      width: 28px;
+    height: 28px;
   border: 1px solid #000;
   border-radius: 3px;
   font-size: 12px;
@@ -301,8 +289,8 @@ export default {
 .readerMax-more-size {
   font-size: 18px;
   padding: 0px;
-  width: 18px;
-  height: 18px;
+      width: 28px;
+    height: 28px;
   padding: 5px;
   border: 1px solid #000;
   border-radius: 3px;
@@ -315,8 +303,8 @@ export default {
   display: flex;
 }
 .readerMax-white, .readerMax-beige, .readerMax-gray, .readerMax-black, .readerMax-right, .readerMax-left, .readerMax-center, .readerMax-justify {
-  width: 18px;
-  height: 18px;
+      width: 28px;
+    height: 28px;
   padding: 5px;
   border: 1px solid #000;
   border-radius: 3px;
@@ -360,7 +348,7 @@ export default {
   width: 100%;
 }
 
-input[type=range] {
+.readerMax input[type=range] {
   margin-top: 15px;
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
   width: 100%; /* Specific width is required for Firefox. */
@@ -549,6 +537,7 @@ input[type=range] {
 .readerMax label {
   font-size: 1.2rem;
   margin-right: 5px;
+  text-align: left;
 }
 
 .readerMax-clear {
