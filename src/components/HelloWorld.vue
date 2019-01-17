@@ -129,28 +129,6 @@
     </div>
     <input v-model="pageNumber" @keyup.enter="locationReplace" class="page-number_input">
     <label @click="locationReplace" class="page-number_label">OK</label>
-    <div class="text"  v-bind:style="{ color: textColor, backgroundColor, fontSize: fontSize/10 + 'rem', textAlign, fontFamily }">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi soluta rem, asperiores dignissimos voluptate, 
-        earum autem itaque quod nulla veniam, sed inventore? Officiis cumque, aperiam reiciendis consectetur beatae laborum laboriosam!
-    </div>
   </div>
 </template>
 
@@ -200,28 +178,28 @@ export default {
   },
 
   mounted() {
-    document.querySelector('#readerApp').style.fontFamily = this.fontFamily;
-    document.querySelector('#readerApp').style.fontSize = this.fontSize + 'px';
-    document.querySelector('#readerApp').style.color = this.textColor;
-    document.querySelector('#readerApp').style.textAlign = this.textAlign;
-    document.querySelector('#readerApp').style.background = this.backgroundColor;
+    document.querySelector('#readerText').style.fontFamily = this.fontFamily;
+    document.querySelector('#readerText').style.fontSize = this.fontSize + 'px';
+    document.querySelector('#readerText').style.color = this.textColor;
+    document.querySelector('#readerText').style.textAlign = this.textAlign;
+    document.querySelector('#readerText').style.background = this.backgroundColor;
   },
 
   watch: {
     backgroundColor: function(newB, oldB) {
-        document.querySelector('#readerApp').style.background = this.backgroundColor;
+        document.querySelector('#readerText').style.background = this.backgroundColor;
     },
     fontSize: function(newB, oldB) {
-      document.querySelector('#readerApp').style.fontSize = this.fontSize + 'px';
+      document.querySelector('#readerText').style.fontSize = this.fontSize + 'px';
     },
     textColor: function(newB, oldB) {
-      document.querySelector('#readerApp').style.color = this.textColor;
+      document.querySelector('#readerText').style.color = this.textColor;
     },
     textAlign: function(newB, oldB) {
-      document.querySelector('#readerApp').style.textAlign = this.textAlign;
+      document.querySelector('#readerText').style.textAlign = this.textAlign;
     },
     fontFamily: function(newB, oldB) {
-      document.querySelector('#readerApp').style.fontFamily = this.fontFamily;
+      document.querySelector('#readerText').style.fontFamily = this.fontFamily;
     }
   },
 
