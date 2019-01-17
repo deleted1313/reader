@@ -170,10 +170,10 @@ export default {
   },
 
   mounted() {
-    document.querySelector('body').style.fontFamily = this.fontFamily;
-    document.querySelector('body').style.fontSize = this.fontSize + 'px';
-    document.querySelector('body').style.color = this.textColor;
-    document.querySelector('body').style.textAlign = this.textAlign;
+    document.querySelector('#readerText').style.fontFamily = this.fontFamily;
+    document.querySelector('#readerText').style.fontSize = this.fontSize + 'px';
+    document.querySelector('#readerText').style.color = this.textColor;
+    document.querySelector('#readerText').style.textAlign = this.textAlign;
     document.querySelector('body').style.background = this.backgroundColor;
   },
 
@@ -182,16 +182,16 @@ export default {
         document.querySelector('body').style.background = this.backgroundColor;
     },
     fontSize: function(newB, oldB) {
-      document.querySelector('body').style.fontSize = this.fontSize + 'px';
+      document.querySelector('#readerText').style.fontSize = this.fontSize + 'px';
     },
     textColor: function(newB, oldB) {
-      document.querySelector('body').style.color = this.textColor;
+      document.querySelector('#readerText').style.color = this.textColor;
     },
     textAlign: function(newB, oldB) {
-      document.querySelector('body').style.textAlign = this.textAlign;
+      document.querySelector('#readerText').style.textAlign = this.textAlign;
     },
     fontFamily: function(newB, oldB) {
-      document.querySelector('body').style.fontFamily = this.fontFamily;
+      document.querySelector('#readerText').style.fontFamily = this.fontFamily;
     }
   },
 
@@ -538,6 +538,7 @@ export default {
   font-size: 1.2rem;
   margin-right: 5px;
   text-align: left;
+  margin-bottom: 0 !important; 
 }
 
 .readerMax-clear {
